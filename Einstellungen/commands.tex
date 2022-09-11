@@ -1,0 +1,47 @@
+% Leave empty
+\name{}{}
+\title{}
+\photo[]{}
+
+
+% Reduce the length of the footer
+\setlength{\footskip}{-45pt} 
+
+%Define the classic red modern cv theme
+\moderncvtheme[red]{classic}
+
+%Definition of a new highlight color instead of the previously defined one
+\definecolor{MyColor}{RGB}{0, 0, 0} % MyColor [Name of the variable]; R = 0, G = 0, B = 0
+% Apply the new created color "MyColor" as the default highlight color
+\colorlet{color1}{MyColor}
+
+%Set the left column to the width of the longest used word, in this case "Staatsangehörigkeit"
+\sethintscolumntowidth{Staatsangehörigkeit}
+
+% Define bullet point icon
+\renewcommand{\labelitemi}{-}
+
+% Definition of new commands to create the CV title and signature
+\newcommand{\myPhoto}[1]{\includegraphics[width = 0.2\textwidth]{#1}}
+
+\newcommand{\myName}[2]{{\sffamily\fontsize{30}{36}\selectfont #1\\[10pt] #2}}
+
+\newcommand{\myCVtitle}[3]{
+ \begin{minipage}[b]{0.6\textwidth}
+ \myName{#1}{#2}\\[10pt]
+    {\color{MyColor}\huge \textit{Lebenslauf}}
+ \end{minipage}
+ \hfill
+ \fcolorbox{MyColor}{white}{\myPhoto{#3}}
+ 
+ \vspace{2em}
+ }
+
+\newcommand{\sign}[3]{
+    \vfill
+    \includegraphics[width=0.4\textwidth, right]{#3}
+    \begin{FlushRight}
+    #2, \today, #1
+    \end{FlushRight}
+    \vfill
+}
